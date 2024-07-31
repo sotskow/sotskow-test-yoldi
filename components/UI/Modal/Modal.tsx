@@ -14,16 +14,16 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({
-                                         visible,
-                                         newName,
-                                         newSlug,
-                                         newDesc,
-                                         setNewName,
-                                         setNewSlug,
-                                         setNewDesc,
-                                         closeModal,
-                                         changeProfile,
-                                     }) => {
+    visible,
+    newName,
+    newSlug,
+    newDesc,
+    setNewName,
+    setNewSlug,
+    setNewDesc,
+    closeModal,
+    changeProfile,
+}) => {
     const rootClasses = [styles.modal]
 
     if (visible) {
