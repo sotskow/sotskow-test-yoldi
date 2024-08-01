@@ -18,7 +18,7 @@ const Auth: React.FC = () => {
 
     const { push } = useRouter()
 
-    const sendRequest = async (url: string, { arg }: Record<string, string>) => {
+    const sendRequest = async (url: string, { arg }: { arg: Record<string, string> }) => {
         await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', accept: 'application/json' },
@@ -32,12 +32,11 @@ const Auth: React.FC = () => {
     )
 
     const login = () => {
-
         const userData = { email: email.trim(), password: password.trim() }
 
         setError('')
         setLoading(true)
-        trigger(userData)
+        trigger( userData)
     }
 
     useEffect(() => {

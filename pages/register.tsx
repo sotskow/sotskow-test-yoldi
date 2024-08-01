@@ -15,11 +15,11 @@ const Register: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(false)
     const [error, setError] = useState<string>('')
     const [hidePassword, setHidePassword] = useState<boolean>(true)
-    const [response, setResponse] = useState<ResponseType>({})
+    const [response, setResponse] = useState<ResponseType>()
 
     const { push } = useRouter()
 
-    const sendRequest = async (url: string, { arg }: Record<string, string>) => {
+    const sendRequest = async (url: string, { arg }: { arg: Record<string, string> }) => {
         await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', accept: 'application/json' },
@@ -36,8 +36,8 @@ const Register: React.FC = () => {
         const userData = { email: email.trim(), name: name.trim(), password: password.trim() }
 
         setError('')
-        trigger(userData)
         setLoading(true)
+        trigger(userData)
     }
 
     useEffect(() => {
@@ -48,7 +48,7 @@ const Register: React.FC = () => {
             push('/users')
         }
 
-        if (response.message) {
+        if (response?.message) {
             setError(response.message)
             setLoading(false)
         }
