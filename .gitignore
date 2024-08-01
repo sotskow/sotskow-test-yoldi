@@ -40,7 +40,7 @@ next-env.d.ts
 # VSCode
 .vscode/
 
-# JetBrains IDEs
+# Exclude all files and directories in the .idea directory
 .idea/
 
 # MacOS
